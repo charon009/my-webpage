@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    个人介绍 | Portfolio
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        /* 头部区域 */
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 50px 40px 30px;
+            text-align: center;
+            color: white;
+        }
+
+        .avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 5px solid white;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            object-fit: cover;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #f093fb, #f5576c);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .name {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .title {
+            font-size: 18px;
+            opacity: 0.9;
+            margin-bottom: 15px;
+        }
+
+        .tagline {
+            font-size: 14px;
+            opacity: 0.8;
+            max-width: 500px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* 内容区域 */
+        .content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 35px;
+        }
+
+        .section-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #667eea;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        /* 关于我 */
+        .about-text {
+            line-height: 1.8;
+            color: #555;
+            font-size: 15px;
+        }
+
+        /* 技能展示 */
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill-tag {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 8px 18px;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        /* 联系方式 */
+        .contact-list {
+            display: grid;
+            gap: 12px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            padding: 12px 15px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            background: #e9ecef;
+            transform: translateX(5px);
+        }
+
+        .contact-icon {
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 16px;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        .contact-text {
+            flex: 1;
+        }
+
+        .contact-label {
+            font-size: 12px;
+            color: #888;
+            margin-bottom: 2px;
+        }
+
+        .contact-value {
+            font-size: 15px;
+            color: #333;
+            font-weight: 500;
+        }
+
+        /* 社交链接 */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            padding-top: 10px;
+        }
+
+        .social-link {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        /* 页脚 */
+        .footer {
+            text-align: center;
+            padding: 25px;
+            background: #f8f9fa;
+            color: #888;
+            font-size: 13px;
+        }
+
+        /* 响应式适配 */
+        @media (max-width: 600px) {
+            body {
+                padding: 20px 10px;
+            }
+            
+            .header {
+                padding: 35px 20px 25px;
+            }
+            
+            .name {
+                font-size: 28px;
+            }
+            
+            .content {
+                padding: 25px 20px;
+            }
+            
+            .avatar {
+                width: 120px;
+                height: 120px;
+                font-size: 48px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 头部区域 -->
+        <div class="header">
+            <div class="avatar">👤</div>
+            <h1 class="name">张三</h1>
+            <p class="title">全栈开发工程师 | 技术爱好者</p>
+            <p class="tagline">热爱编程，专注于创造优雅的用户体验和高效的解决方案</p>
+        </div>
+
+        <!-- 内容区域 -->
+        <div class="content">
+            <!-- 关于我 -->
+            <div class="section">
+                <h2 class="section-title">📝 关于我</h2>
+                <p class="about-text">
+                    你好！我是一名充满热情的全栈开发工程师，拥有5年的软件开发经验。
+                    我专注于Web应用开发，擅长使用现代技术栈构建高性能、可扩展的应用程序。
+                    在工作中，我注重代码质量和用户体验，善于解决复杂的技术问题。
+                    业余时间喜欢研究新技术、参与开源项目，并乐于分享技术知识。
+                </p>
+            </div>
+
+            <!-- 技能展示 -->
+            <div class="section">
+                <h2 class="section-title">💡 技能专长</h2>
+                <div class="skills">
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">TypeScript</span>
+                    <span class="skill-tag">React</span>
+                    <span class="skill-tag">Vue.js</span>
+                    <span class="skill-tag">Node.js</span>
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">MySQL</span>
+                    <span class="skill-tag">MongoDB</span>
+                    <span class="skill-tag">Docker</span>
+                    <span class="skill-tag">Git</span>
+                    <span class="skill-tag">Linux</span>
+                    <span class="skill-tag">AWS</span>
+                </div>
+            </div>
+
+            <!-- 联系方式 -->
+            <div class="section">
+                <h2 class="section-title">📬 联系方式</h2>
+                <div class="contact-list">
+                    <div class="contact-item">
+                        <div class="contact-icon">📧</div>
+                        <div class="contact-text">
+                            <div class="contact-label">电子邮箱</div>
+                            <div class="contact-value">zhangsan@example.com</div>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📱</div>
+                        <div class="contact-text">
+                            <div class="contact-label">手机号码</div>
+                            <div class="contact-value">+86 138-0000-0000</div>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div class="contact-text">
+                            <div class="contact-label">所在地区</div>
+                            <div class="contact-value">中国 · 北京</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 社交链接 -->
+            <div class="section">
+                <h2 class="section-title">🔗 社交链接</h2>
+                <div class="social-links">
+                    <a href="https://github.com/demo-user" class="social-link" title="GitHub" target="_blank">
+                        <span>🐙</span>
+                    </a>
+                    <a href="https://linkedin.com/in/demo-user" class="social-link" title="LinkedIn" target="_blank">
+                        <span>💼</span>
+                    </a>
+                    <a href="https://twitter.com/demo-user" class="social-link" title="Twitter" target="_blank">
+                        <span>🐦</span>
+                    </a>
+                    <a href="https://blog.example.com" class="social-link" title="个人博客" target="_blank">
+                        <span>📰</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 页脚 -->
+        <div class="footer">
+            © 2024 张三 · 用 ❤️ 精心制作
+        </div>
+    </div>
+</body>
+</html>
